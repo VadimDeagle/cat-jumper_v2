@@ -215,116 +215,71 @@ function startLevel () {
     }
     for (let value5 of tiles.getTilesByType(assets.tile`tile4`)) {
         flower = sprites.create(img`
-            . . . f f f f f . . . 
-            . . f 5 5 5 5 5 f . . 
-            . f 5 4 4 4 5 5 5 f . 
-            f 5 4 5 5 5 5 5 5 5 f 
-            f 5 4 5 5 5 5 5 5 5 f 
-            f 5 4 5 5 5 5 5 5 5 f 
-            f 5 4 5 5 5 5 5 5 5 f 
-            f 5 5 5 5 5 5 5 5 5 f 
-            . f 5 5 4 5 5 5 5 f . 
-            . . f 5 5 5 5 5 f . . 
-            . . . f f f f f . . . 
+            . . b b b b . . 
+            . b 5 5 5 5 b . 
+            b 5 d 3 3 d 5 b 
+            b 5 3 5 5 1 5 b 
+            c 5 3 5 5 1 d c 
+            c d d 1 1 d d c 
+            . f d d d d f . 
+            . . f f f f . . 
             `, SpriteKind.Coin)
         animation.runImageAnimation(
         flower,
         [img`
-            . . . f f f f f . . . 
-            . . f 5 4 4 4 5 f . . 
-            . f 5 4 5 5 5 5 5 f . 
-            f 5 4 5 5 5 5 5 5 5 f 
-            f 5 4 5 5 5 5 5 5 5 f 
-            f 5 4 5 5 5 5 5 5 5 f 
-            f 5 4 5 5 5 5 5 5 5 f 
-            f 5 5 5 5 5 5 5 5 5 f 
-            . f 5 5 4 5 5 5 5 f . 
-            . . f 5 5 5 5 5 f . . 
-            . . . f f f f f . . . 
+            . . b b b b . . 
+            . b 5 5 5 5 b . 
+            b 5 d 3 3 d 5 b 
+            b 5 3 5 5 1 5 b 
+            c 5 3 5 5 1 d c 
+            c d d 1 1 d d c 
+            . f d d d d f . 
+            . . f f f f . . 
             `,img`
-            . . . . f f f . . . . 
-            . . . f 5 4 5 f . . . 
-            . . f 5 4 5 5 5 f . . 
-            . f 5 4 5 5 5 5 5 f . 
-            . f 5 4 5 5 5 5 5 f . 
-            . f 5 4 5 5 5 5 5 f . 
-            . f 5 4 5 5 5 5 5 f . 
-            . f 5 5 5 5 5 5 5 f . 
-            . . f 5 5 4 5 5 f . . 
-            . . . f 5 5 5 f . . . 
-            . . . . f f f . . . . 
+            . . b b b . . . 
+            . b 5 5 5 b . . 
+            b 5 d 3 d 5 b . 
+            b 5 3 5 1 5 b . 
+            c 5 3 5 1 d c . 
+            c 5 d 1 d d c . 
+            . f d d d f . . 
+            . . f f f . . . 
             `,img`
-            . . . . . f . . . . . 
-            . . . . f 5 f . . . . 
-            . . . f 5 4 5 f . . . 
-            . . f 5 4 5 5 5 f . . 
-            . . f 5 4 5 5 5 f . . 
-            . . f 5 4 5 5 5 f . . 
-            . . f 5 4 5 5 5 f . . 
-            . . f 5 5 5 5 5 f . . 
-            . . . f 5 5 5 f . . . 
-            . . . . f 5 f . . . . 
-            . . . . . f . . . . . 
+            . . . b b . . . 
+            . . b 5 5 b . . 
+            . b 5 d 1 5 b . 
+            . b 5 3 1 5 b . 
+            . c 5 3 1 d c . 
+            . c 5 1 d d c . 
+            . . f d d f . . 
+            . . . f f . . . 
             `,img`
-            . . . . . f . . . . . 
-            . . . . f 5 f . . . . 
-            . . . . f 4 f . . . . 
-            . . . f 5 5 5 f . . . 
-            . . . f 5 5 5 f . . . 
-            . . . f 5 5 5 f . . . 
-            . . . f 5 5 5 f . . . 
-            . . . f 5 5 5 f . . . 
-            . . . . f 5 f . . . . 
-            . . . . f 5 f . . . . 
-            . . . . . f . . . . . 
+            . . . b b . . . 
+            . . b 5 5 b . . 
+            . . b 1 1 b . . 
+            . . b 5 5 b . . 
+            . . b d d b . . 
+            . . c d d c . . 
+            . . c 3 3 c . . 
+            . . . f f . . . 
             `,img`
-            . . . . . f . . . . . 
-            . . . . f 5 f . . . . 
-            . . . . f 4 f . . . . 
-            . . . . f 5 f . . . . 
-            . . . . f 5 f . . . . 
-            . . . . f 5 f . . . . 
-            . . . . f 5 f . . . . 
-            . . . . f 5 f . . . . 
-            . . . . f 5 f . . . . 
-            . . . . f 5 f . . . . 
-            . . . . . f . . . . . 
+            . . . b b . . . 
+            . . b 5 5 b . . 
+            . b 5 1 d 5 b . 
+            . b 5 1 3 5 b . 
+            . c d 1 3 5 c . 
+            . c d d 1 5 c . 
+            . . f d d f . . 
+            . . . f f . . . 
             `,img`
-            . . . . . f . . . . . 
-            . . . . f 5 f . . . . 
-            . . . . f 4 f . . . . 
-            . . . f 5 5 5 f . . . 
-            . . . f 5 5 5 f . . . 
-            . . . f 5 5 5 f . . . 
-            . . . f 5 5 5 f . . . 
-            . . . f 5 5 5 f . . . 
-            . . . . f 5 f . . . . 
-            . . . . f 5 f . . . . 
-            . . . . . f . . . . . 
-            `,img`
-            . . . . . f . . . . . 
-            . . . . f 5 f . . . . 
-            . . . f 5 4 5 f . . . 
-            . . f 5 4 5 5 5 f . . 
-            . . f 5 4 5 5 5 f . . 
-            . . f 5 4 5 5 5 f . . 
-            . . f 5 4 5 5 5 f . . 
-            . . f 5 5 5 5 5 f . . 
-            . . . f 5 5 5 f . . . 
-            . . . . f 5 f . . . . 
-            . . . . . f . . . . . 
-            `,img`
-            . . . . f f f . . . . 
-            . . . f 5 4 5 f . . . 
-            . . f 5 4 5 5 5 f . . 
-            . f 5 4 5 5 5 5 5 f . 
-            . f 5 4 5 5 5 5 5 f . 
-            . f 5 4 5 5 5 5 5 f . 
-            . f 5 4 5 5 5 5 5 f . 
-            . f 5 5 5 5 5 5 5 f . 
-            . . f 5 5 4 5 5 f . . 
-            . . . f 5 5 5 f . . . 
-            . . . . f f f . . . . 
+            . . . b b b . . 
+            . . b 5 5 5 b . 
+            . b 5 d 3 d 5 b 
+            . b 5 1 5 3 5 b 
+            . c d 1 5 3 5 c 
+            . c d d 1 d 5 c 
+            . . f d d d f . 
+            . . . f f f . . 
             `],
         150,
         true
@@ -333,24 +288,7 @@ function startLevel () {
         tiles.setTileAt(value5, assets.tile`tile0`)
     }
     for (let value6 of tiles.getTilesByType(assets.tile`tile5`)) {
-        flower = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . 3 a . . a 3 . . . . . . 
-            . . . . a 3 2 2 3 a . . . . . . 
-            . . 7 7 . a 3 3 a . . . . . . . 
-            . . 7 7 7 . c c . 7 7 . . . . . 
-            . . . 8 7 7 7 . 7 7 7 . . . . . 
-            . . . 8 8 7 7 7 7 8 . . . . . . 
-            . . . . . 8 7 7 8 . . . . . . . 
-            . . . . . . 7 8 . . . . . . . . 
-            `, SpriteKind.Flower)
+        flower = sprites.create(flowers[randint(0, flowers.length - 1)], SpriteKind.Flower)
         tiles.placeOnTile(flower, value6)
         tiles.setTileAt(value6, assets.tile`tile0`)
     }
@@ -397,6 +335,7 @@ let flower: Sprite = null
 let bee: Sprite = null
 let Hops_and_Paw: Sprite = null
 let current_level = 0
+let flowers: Image[] = []
 scene.setBackgroundColor(9)
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -520,6 +459,75 @@ scene.setBackgroundImage(img`
     cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
     cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
     `)
+flowers = [img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . 3 a . . a 3 . . . . . . 
+    . . . . a 3 2 2 3 a . . . . . . 
+    . . 7 7 . a 3 3 a . . . . . . . 
+    . . 7 7 7 . c c . 7 7 . . . . . 
+    . . . 8 7 7 7 . 7 7 7 . . . . . 
+    . . . 8 8 7 7 7 7 8 . . . . . . 
+    . . . . . 8 7 7 8 . . . . . . . 
+    . . . . . . 7 8 . . . . . . . . 
+    `, img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . 2 2 . . . . . . . . 
+    . . . . . 2 2 2 2 . . . . . . . 
+    . . . . . 2 2 2 2 . . . . . . . 
+    . . . . 2 4 2 2 4 2 . . . . . . 
+    . . . . 4 2 5 5 2 4 . . . . . . 
+    . . 7 7 . 4 2 2 4 . . . . . . . 
+    . . 7 7 7 . c c . 7 7 . . . . . 
+    . . . 8 7 7 7 . 7 7 7 . . . . . 
+    . . . 8 8 7 7 7 7 8 . . . . . . 
+    . . . . . 8 7 7 8 . . . . . . . 
+    . . . . . . 7 8 . . . . . . . . 
+    `, img`
+    . . . . . . 6 . . . . . . . . . 
+    . . . . . . 6 7 . . . . . . . . 
+    . . . . . . 7 6 7 . . 6 . . . . 
+    . . . . . . 7 7 6 . . 6 7 . . . 
+    . . . . . . 7 7 7 . . 6 7 . . . 
+    . . . . . 7 7 6 7 . . 7 6 . . . 
+    . . . . . 7 7 6 7 . . 6 7 . . . 
+    . 6 . . . 7 6 7 7 . . 7 7 . . . 
+    . 6 7 . . 7 7 7 7 . . 7 6 . . . 
+    . 7 7 . . 7 7 6 7 . . 7 7 . . . 
+    . 7 7 6 . . 7 7 7 . 7 7 6 7 . . 
+    . 7 6 7 7 7 7 7 7 6 7 7 7 . . . 
+    . . 7 7 6 7 7 7 7 7 7 7 7 . . . 
+    . . . 7 7 7 7 6 7 7 7 6 . . . . 
+    . . . . . 8 7 7 8 . . . . . . . 
+    . . . . . . 7 8 . . . . . . . . 
+    `, img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . 1 . . 1 . . . 1 . . . . . 
+    . . . 1 1 . 1 . 1 1 . . . . . . 
+    . . . . 1 1 5 5 1 . . . . . . . 
+    . 1 1 1 1 5 5 5 5 1 1 1 . . . . 
+    . . . . 1 1 5 5 1 1 . . . . . . 
+    . . 1 1 1 . 7 . 1 1 1 . . . . . 
+    . . . . . . 7 . 1 . 1 . . . . . 
+    . . 7 7 . . 7 . 1 . . . . . . . 
+    . . 7 7 7 . 7 . . 7 7 . . . . . 
+    . . . 8 7 7 7 . 7 7 7 . . . . . 
+    . . . 8 8 7 7 7 7 8 . . . . . . 
+    . . . . . 8 7 7 8 . . . . . . . 
+    . . . . . . 7 8 . . . . . . . . 
+    `]
 current_level = 0
 Hops_and_Paw = sprites.create(img`
     . . . . . . . . . . . . . . . . 
