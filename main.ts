@@ -3,6 +3,9 @@ namespace SpriteKind {
     export const Flower = SpriteKind.create()
     export const Fireball = SpriteKind.create()
 }
+scene.onOverlapTile(SpriteKind.Player, null, function (sprite, undefined) {
+	
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     otherSprite.destroy(effects.ashes, 100)
@@ -184,6 +187,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Flower, function (sprite, otherS
     bee.setPosition(Hops_and_Paw.x + 80, Hops_and_Paw.y - 80)
     bee.follow(Hops_and_Paw, 50)
 })
+scene.onOverlapTile(0, 0, function (undefined, undefined) {
+	
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Fireball, function (sprite, otherSprite) {
     info.changeLifeBy(-2)
     otherSprite.destroy()
@@ -323,7 +329,7 @@ function startLevel () {
     }
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy()
+    otherSprite.destroy(effects.clouds, 10)
     if (Hops_and_Paw.y < otherSprite.y) {
         info.changeScoreBy(3)
     } else {
@@ -494,17 +500,17 @@ flowers = [img`
     . . . . . 8 7 7 8 . . . . . . . 
     . . . . . . 7 8 . . . . . . . . 
     `, img`
-    . . . . . . 6 . . . . . . . . . 
-    . . . . . . 6 7 . . . . . . . . 
-    . . . . . . 7 6 7 . . 6 . . . . 
-    . . . . . . 7 7 6 . . 6 7 . . . 
-    . . . . . . 7 7 7 . . 6 7 . . . 
-    . . . . . 7 7 6 7 . . 7 6 . . . 
-    . . . . . 7 7 6 7 . . 6 7 . . . 
-    . 6 . . . 7 6 7 7 . . 7 7 . . . 
-    . 6 7 . . 7 7 7 7 . . 7 6 . . . 
-    . 7 7 . . 7 7 6 7 . . 7 7 . . . 
-    . 7 7 6 . . 7 7 7 . 7 7 6 7 . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . 6 . . . . . . . . 
+    . . . . . . . 6 7 . . . . . . . 
+    . 6 . . . . . 7 7 . . . . . . . 
+    . 6 7 . . . . 7 7 . . . . . . . 
+    . 7 7 . . . . 6 7 . . . 7 . . . 
+    . 7 7 6 . . 7 7 7 . . 7 6 7 . . 
     . 7 6 7 7 7 7 7 7 6 7 7 7 . . . 
     . . 7 7 6 7 7 7 7 7 7 7 7 . . . 
     . . . 7 7 7 7 6 7 7 7 6 . . . . 
@@ -588,10 +594,8 @@ game.onUpdate(function () {
             . . . . . . . . f . f . . . . . 
             . . . . . . . . f . f f . . . . 
             `)
-    } else if (Hops_and_Paw.vx > 0) {
-        animation.runImageAnimation(
-        Hops_and_Paw,
-        [img`
+    } else if (Math.round(Hops_and_Paw.x) % 2 == 0) {
+        Hops_and_Paw.setImage(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -601,34 +605,14 @@ game.onUpdate(function () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . f . . . 
-            . . . . . . . . . . . . f f f . 
-            . . . . . . . . . . . . f f 5 f 
-            f f f f f f f f f f f f f f f f 
+            f . . . . . . . . . . . f f f . 
+            . f f . . . . . . . . . f f 5 f 
+            . . . f f f f f f f f f f f f f 
             . . . . f f f f f f f f f f . . 
             . . . . f f f f f f f f f . . . 
             . . . . f f . . . . . f f . . . 
             . . . . f f . . . . . f f . . . 
-            `,img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . f . . . 
-            . . . . . . . . . . . . f f f . 
-            . . . . . . . . . . . . f f 5 f 
-            f f f f f f f f f f f f f f f f 
-            . . . . f f f f f f f f f f . . 
-            . . . . f f f f f f f f f . . . 
-            . . . . f . f . . . . . f f . . 
-            . . . . f . f . . . . . f . f . 
-            `],
-        100,
-        false
-        )
+            `)
     } else {
         Hops_and_Paw.setImage(img`
             . . . . . . . . . . . . . . . . 
