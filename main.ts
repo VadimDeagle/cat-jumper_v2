@@ -1,3 +1,8 @@
+enum ActionKind {
+    Walking,
+    Idle,
+    Jumping
+}
 namespace SpriteKind {
     export const Coin = SpriteKind.create()
     export const Flower = SpriteKind.create()
@@ -16,7 +21,8 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`tile3`, function (sprite, loc
     game.over(false, effects.melt)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tile8`, function (sprite, location) {
-	
+    tiles.placeOnRandomTile(Hops_and_Paw, assets.tile`tile6`)
+    Hops_and_Paw.startEffect(effects.warmRadial, 200)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tile2`, function (sprite, location) {
     current_level += 1
@@ -202,9 +208,7 @@ function startLevel () {
         game.over(true)
     }
     tiles.placeOnRandomTile(Hops_and_Paw, assets.tile`tile6`)
-    for (let value of tiles.getTilesByType(assets.tile`tile6`)) {
-        tiles.setTileAt(value, assets.tile`tile0`)
-    }
+    Hops_and_Paw.startEffect(effects.warmRadial, 200)
     scene.cameraFollowSprite(Hops_and_Paw)
     info.setLife(9)
     for (let value2 of sprites.allOfKind(SpriteKind.Enemy)) {
@@ -324,6 +328,34 @@ function startLevel () {
         )
         fireball.startEffect(effects.fire)
     }
+    for (let value10 of tiles.getTilesByType(assets.tile`myTile`)) {
+        Pill = sprites.create(img`
+            . . . . . . 5 5 5 . . . . . . . 
+            . . . . . 5 5 4 5 5 . . . . . . 
+            . . . . . 5 4 2 4 5 . . . . . . 
+            . . . . . 5 4 2 4 5 . . . . . . 
+            . . . . . 5 4 2 4 5 . . . . . . 
+            . . . . . 5 4 2 4 5 . . . . . . 
+            . . . . . 5 4 2 4 5 . . . . . . 
+            . . . . . 5 4 2 4 5 . . . . . . 
+            . . 5 5 5 5 4 2 4 5 5 5 5 . . . 
+            . . 5 4 4 5 4 2 4 5 4 4 5 . . . 
+            . . 5 4 2 4 4 2 4 4 2 4 5 . . . 
+            . . . 5 4 2 4 2 4 2 4 5 . . . . 
+            . . . . 5 4 2 2 2 4 5 . . . . . 
+            . . . . . 5 4 2 4 5 . . . . . . 
+            . . . . . . 5 4 5 . . . . . . . 
+            . . . . . . . 5 . . . . . . . . 
+            `, SpriteKind.Coin)
+        tiles.placeOnTile(Pill, value10)
+        tiles.setTileAt(value10, assets.tile`tile0`)
+        animation.runMovementAnimation(
+        Pill,
+        animation.animationPresets(animation.bobbing),
+        1000,
+        true
+        )
+    }
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.destroy(effects.clouds, 10)
@@ -333,6 +365,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         info.changeLifeBy(-1)
     }
 })
+let Pill: Sprite = null
 let fireball: Sprite = null
 let flower: Sprite = null
 let bee: Sprite = null
@@ -531,7 +564,7 @@ flowers = [img`
     . . . . . 8 7 7 8 . . . . . . . 
     . . . . . . 7 8 . . . . . . . . 
     `]
-current_level = 0
+current_level = 1
 Hops_and_Paw = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
